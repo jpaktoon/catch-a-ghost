@@ -257,7 +257,33 @@ function setDuration(duration) {
 function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
+
+  // Re-enable the start button
+  enableStartButton();
+  
   return "game stopped";
+}
+
+/**
+*
+* This function is called after game stopped
+* so that user can replay the game.
+*
+*/
+function enableStartButton() {
+  // Enable the button
+  startButton.disabled = false;
+}
+
+/**
+*
+* This function is called ONLY after game started 
+* to prevent user click on the start button multiple times.
+*
+*/
+function disableStartButton() {
+  // Disable the button
+  startButton.disabled = true;
 }
 
 /**
@@ -267,8 +293,23 @@ function stopGame(){
 *
 */
 function startGame(){
+
+  // clear all scores
+  clearScore();
+
+  // set time and timer
   setDuration(10);
+  startTimer();
+
+  // set each mole event listetner
+  setEventListeners();
+
+  // game started!!
   showUp();
+
+  // Disable start button
+  disableStartButton();
+
   return "game started";
 }
 
