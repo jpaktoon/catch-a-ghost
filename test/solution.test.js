@@ -305,3 +305,25 @@ describe("US-05: startTimer() and updateTimer()", () => {
     expect(startGame).toContain("startTimer()");
   });
 });
+
+describe("IMPROVEMENT-01: Start Button handling", () => {
+
+  it("should disable the start button after game start", async () => {
+    const startButtonDisabled = await page.evaluate(() => {
+      window.startGame();
+      return document.querySelector("#start").disabled;
+    });
+    expect(startButtonDisabled).toBe(true);
+  });
+
+  it("should re-enable the start button after game stop", async () => {
+    const startButtonDisabled = await page.evaluate(() => {
+      window.startGame();
+      window.setDuration(0);
+      // gameOver() should call stopGame to re-enable the start button
+      window.gameOver();
+      return document.querySelector("#start").disabled;
+    });
+    expect(startButtonDisabled).toBe(false);
+  });
+});
