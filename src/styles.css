@@ -1,19 +1,22 @@
 html {
-  /*background: url('./assets/background.png') no-repeat center center fixed;*/
-  background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed;
+  /* background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed; */
+  background: url("../assets/background.jpg") no-repeat center center fixed;
   box-sizing: border-box;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index:0;
+  z-index: 0;
   overflow: hidden;
 }
 
 h1 {
   text-align: center;
   font-size: 90px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
+  font-family: "Eater", serif;
+  font-weight: 400;
+  font-style: normal;
   color: white;
   -webkit-text-stroke: 2px black;
 }
@@ -25,13 +28,31 @@ h2 {
   -webkit-text-stroke: 1px black;
 }
 
-#start {
-    text-align: center;
-    font-size: 30px;
+.difficulty, #start {
+  text-align: center;
+  font-size: 30px;
 }
 
-#timer{
-    color: white;
+.difficulty.active {
+  background-color: #333;
+  color: #fff;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1; /* Visible */
+  }
+  50% {
+    opacity: 0; /* Invisible */
+  }
+  100% {
+    opacity: 1; /* Visible */
+  }
+}
+
+#timer {
+  color: white;
+  animation: none; /* Initially, no animation */
 }
 
 .grid {
@@ -40,7 +61,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  /*cursor: url('./assets/mallet.png'), pointer;*/
+  cursor: url('../assets2/mallet.png'), pointer;
 }
 
 .hole {
@@ -52,28 +73,29 @@ h2 {
 .hole:after {
   display: block;
   /*background: url("./assets/hole.png") bottom center no-repeat;*/
-  background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat;
-  background-size:contain;
-  content:'';
+  background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true")
+    bottom center no-repeat;
+  background-size: contain;
+  content: "";
   width: 100%;
   height: 100%;
   position: absolute;
   bottom: -40%;
   z-index: 2;
-  pointer-events:none;
+  pointer-events: none;
 }
 
 .mole {
-  /*background:url('./assets/mole.png') bottom center no-repeat;*/
-  background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat;
-  background-size: 40%;
+  /* background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat; */
+  background: url("../assets/mole.png") bottom center no-repeat;
+  background-size: 60%;
   position: absolute;
   top: 100%;
   width: 100%;
   height: 100%;
   /*transition: transform 0.5s;*/
   transition: all 1s;
-  pointer-events:auto;
+  pointer-events: auto;
 }
 
 .hole.show .mole {

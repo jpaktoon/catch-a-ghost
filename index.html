@@ -1,18 +1,29 @@
 <html>
   <head>
-    <link rel="stylesheet" href="./src/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Eater&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body>
-    <h1 id="title"> Whack A Mole !! </h1>
+    <h1 id="title">Catch A Ghost !!</h1>
     <div>
       <div>
-        <h2>Click <button id="start">start</button> to play!</h2>
+        <h2>
+          Mode 
+          <button id="easy" class="difficulty" data-difficulty="easy">Easy</button>
+          <button id="normal" class="difficulty" data-difficulty="normal">Normal</button>
+          <button id="hard" class="difficulty" data-difficulty="hard">Hard</button>
+          Click <button id="start">Start</button> to play!</h2>
       </div>
       <div>
         <h2>score: <span id="score">0</span></h2>
       </div>
       <div>
-          <h2><span id="timer">0</span> seconds left.</h2>
+        <h2><span id="timer">0</span> seconds left.</h2>
       </div>
     </div>
     <div class="grid">

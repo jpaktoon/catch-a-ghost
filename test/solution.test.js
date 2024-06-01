@@ -306,9 +306,8 @@ describe("US-05: startTimer() and updateTimer()", () => {
   });
 });
 
-describe("IMPROVEMENT-01: Start Button handling", () => {
-
-  it("should disable the start button after game start", async () => {
+describe("IMPROVEMENT-01: Buttons handling", () => {
+  it("should disable start button after game start", async () => {
     const startButtonDisabled = await page.evaluate(() => {
       window.startGame();
       return document.querySelector("#start").disabled;
@@ -316,7 +315,7 @@ describe("IMPROVEMENT-01: Start Button handling", () => {
     expect(startButtonDisabled).toBe(true);
   });
 
-  it("should re-enable the start button after game stop", async () => {
+  it("should re-enable start buttons after game stop", async () => {
     const startButtonDisabled = await page.evaluate(() => {
       window.startGame();
       window.setDuration(0);
@@ -325,5 +324,26 @@ describe("IMPROVEMENT-01: Start Button handling", () => {
       return document.querySelector("#start").disabled;
     });
     expect(startButtonDisabled).toBe(false);
+  });
+
+  it("should disable difficulty buttons after game start", async () => {
+    const difficultyButtonsDisabled = await page.evaluate(() => {
+      window.startGame();
+      const difficultyButtons = Array.from(document.querySelectorAll(".difficulty"));
+      return difficultyButtons.every(button => button.disabled);
+    });
+    expect(difficultyButtonsDisabled).toBe(true);
+  });
+  
+  it("should re-enable difficulty buttons after game stop", async () => {
+    const difficultyButtonsDisabled = await page.evaluate(() => {
+      window.startGame();
+      window.setDuration(0);
+      // gameOver() should call stopGame to re-enable the difficulty buttons
+      window.gameOver();
+      const difficultyButtons = Array.from(document.querySelectorAll(".difficulty"));
+      return difficultyButtons.every(button => !button.disabled);
+    });
+    expect(difficultyButtonsDisabled).toBe(true);
   });
 });
