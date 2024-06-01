@@ -6,9 +6,10 @@ const timerDisplay = document.querySelector("#timer"); // use querySelector() to
 const difficultyButtons = document.querySelectorAll(".difficulty");
 
 // Song
-const audioHit = new Audio("../assets/hit.mp3");
-const song = new Audio("../assets/molesong.mp3");
-const endsong = new Audio("../assets/endgame.mp3");
+const basePath = window.location.pathname.includes('whack-a-ghost') ? 'whack-a-ghost' : '..';
+const audioHit = new Audio(`${basePath}/assets/hit.mp3`);
+const song = new Audio(`${basePath}/assets/molesong.mp3`);
+const endsong = new Audio(`${basePath}/assets/endgame.mp3`);
 
 let time = 0;
 let timer;
