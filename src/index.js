@@ -359,7 +359,7 @@ function setDifficultyEventListeners() {
  * Play Audio
  */
 function playAudio(audioObject) {
-  audioObject.play();
+  audioObject.play().catch(() => {});
 }
 
 /**
