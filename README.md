@@ -1,5 +1,7 @@
 # Whack-a-Ghost!
 
+![Gameplay Screenshot](assets/gameplay.png)
+
 ## Description
 
 Welcome to Whack-a-Ghost! This fun and spooky game is a themed variant of the classic Whack-a-Mole game. Test your reflexes and see how many ghosts you can whack in just 10 seconds!
@@ -34,5 +36,5 @@ cd whack-a-ghost
 ## Local Deverlopment
 1. Fork and clone this repository.
 2. Navigate to the project's folder.
-3. Run npm install to install.
-4. To run the unit tests, run npm test.
+3. Run `npm install` to install.
+4. To run the unit tests, run `npm test`.
