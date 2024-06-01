@@ -6,7 +6,7 @@ const timerDisplay = document.querySelector("#timer"); // use querySelector() to
 const difficultyButtons = document.querySelectorAll(".difficulty");
 
 // Song
-const basePath = window.location.origin.includes('github.io') ? 'https://jpaktoon.github.io/catch-a-ghost' : '..';
+const basePath = window.location.origin.includes('github.io') ? 'https://jpaktoon.github.io/whack-a-ghost' : '..';
 const audioHit = new Audio(`${basePath}/assets/hit.mp3`);
 const song = new Audio(`${basePath}/assets/molesong.mp3`);
 const endsong = new Audio(`${basePath}/assets/endgame.mp3`);
